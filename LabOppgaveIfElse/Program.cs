@@ -24,7 +24,7 @@ namespace LabOppgaveIfElse
 
             do
             {
-                Console.Write("Tast inn en temperatur: ");
+                Console.Write("Tast inn en temperatur: ");/////////////////////////////
 
                 input = Console.ReadLine();
                 res = int.TryParse(input, out temperatur);
