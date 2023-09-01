@@ -10,47 +10,48 @@ namespace LabOppgaveIfElse
     {
         static void Main(string[] args)
         {
-            //Tema er if/else
-            
+            Temperatur();
 
-            int alder = 18;
-            if (alder > 17)
+            Console.ReadLine();
+        }
+
+        static void Temperatur()
+        {
+            // Deklarering av variabler
+            bool res;
+            int temperatur;
+            string input;
+
+            do
             {
-                Console.WriteLine("Gammel nok til å kjøre bil");
-            }
-            else
-            {
-                Console.WriteLine("Gammel nok til å kjøre bil");
-            }
+                Console.Write("Tast inn en temperatur: ");
 
-            //dette betyr: Hvis alder er større enn 17, så skriv ut gammel nok
-            //(else)hvis ikke, så skriv ikke gammel nok
-            //en if er true eller false
+                input = Console.ReadLine();
+                res = int.TryParse(input, out temperatur);
 
-            //Hvordan lese inn noe fra konsoll? eksempel under
-            Console.WriteLine("Tast inn et tall");//Beskjed til bruker
-            int tall = int.Parse(Console.ReadLine());//Her skjer den faktiske innlesningen. Variabelen tall får verdien av bruker.
-            Console.WriteLine("Variabelen tall har nå verdien:" + tall);
+                if (res)
+                {
+                    if(temperatur > 0)
+                    {
+                        Console.WriteLine("Plussgrader.");
+                    }
+                    else if (temperatur < 0)
+                    {
+                        Console.WriteLine("Minusgrader.");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Det er null det.");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Ikke et gyldig tall!\nPress any key...");
 
-
-            //oppgave 1
-            //Sånn, da har vi nok av kodeeksempler til å lage noe selv. Oppgaven kommer under her. 
-            //Lever koden på Teams. Lykke til.
-            //De to første linjene er ferdige. Vi leser inn en temperatur.
-            //Du skal lage en "if/else" som i eksempelet over.
-            //Hvis temperatur er under null, skriv ut "minusgrader". Hvis ikke (else), skriv ut "varmegrader".
-            //Hva skjer hvis det er 0 grader? Kan vi håndtere det?
-
-            Console.WriteLine("Tast inn en temperatur, et heltall");
-            int temperatur = int.Parse(Console.ReadLine());//leser inn temperatur
-
-
-            //din if/else her
-
-            //oppgave 2
-            //Lik oppgaven over, men denne gangen skal du lage en metode, og kalle denne.
-            //Så vi leser inn som over, kaller metoden, som har parameter/argument. Dette parameteret er temperaturen.
-            //Metoden skal ikke returnere noe.
+                    Console.ReadKey();
+                    Console.Clear();
+                }
+            } while (res == false); // Fortsetter loopen om res == false
         }
     }
 }
